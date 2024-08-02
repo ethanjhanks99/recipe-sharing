@@ -17,13 +17,41 @@
 * Delete a recipe I have uploaded
 * View recipes I have uploaded
 * View public recipes uploaded by other accounts
+* Comment on recipes posted
+* Delete a comment I have posted
 * Download a recipe (my own or a publicly posted one)
 * Delete my account
+* Navigate through the application easily
 
 ### Data used by the application
 
-* Recipe - recipe
-  * ingredient - string
+* Recipe - Recipe
+  * description - string
+  * ingredient - Ingredient 
   * instructions - string
+  * title - string
+* User - User
+  * firstname - string
+  * lastname - string
+  * email - string
+  * password - hashed string
+* Ingredient - Ingredient
   * name - string
+
+### Enpoints needed for the application
+
+* Home page - GET
+* Account page - GET
+* Recipe page - GET
+* Create recipe page - GET
+* Create recipe - POST
+* Update recipe page - GET
+* Update recipe - POST
+* Delete recipe - DELETE
+* Comment - POST
+* Delete a comment - DELETE
+
+## Design
+
+
 
