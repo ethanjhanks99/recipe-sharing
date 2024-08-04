@@ -1,6 +1,5 @@
 # Recipe Sharing Application Development Plan
 ## Analysis of Requirements
-
 ### Tools
 
 * This application will use Django on the backend and React on the front
@@ -27,16 +26,20 @@
 
 * Recipe - Recipe
   * description - string
-  * ingredient - Ingredient 
+  * ingredient - string 
   * instructions - string
   * title - string
+  * comments - Comments
+  * public - boolean
 * User - User
   * firstname - string
   * lastname - string
   * email - string
   * password - hashed string
-* Ingredient - Ingredient
-  * name - string
+* Comment - Comment
+  * poster - User
+  * header - string
+  * comment - string
 
 ### Enpoints needed for the application
 
@@ -52,6 +55,17 @@
 * Delete a comment - DELETE
 
 ## Design
+### Models
+#### Recipe
 
-
+* Contains the following data
+  * Id - used to identify recipes
+  * Title - a name for the recipe
+  * Ingredients - the list of ingredients needed for the recipe
+    * All ingredients must be separated by a comma
+  * Instructions - a step by step guide to the recipe
+    * Will be taken in as one string
+  * Comments - a one to many relationship with the `Comment` model
+    * A comment belongs to one post, a post can have many comments
+  * Public - whether or not the posted recipe is visible to other users
 
