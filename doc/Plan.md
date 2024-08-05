@@ -130,4 +130,14 @@ def account(req):
   return JsonResponse({recipes: recipes})
 ```
 
+#### GET Recipe Page
+
+* The recipe page will display all the details of a specific recipe
+* The front end will make a request for a specific recipe's data
+
+```python
+def get_recipe(req, id):
+  recipe = Recipe object(id = id)
+  return JsonResponse({recipe: recipe})
+```
 
