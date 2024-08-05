@@ -119,3 +119,15 @@ def get_public_recipes(req):
 
 #### GET Account Page
 
+* The account page will display recipes posted by the user
+* The account page will also display the username, as well as a button to access user settings
+* When the front end displays the account page, the back end will provide all recipes posted by the user
+
+```python
+def account(req):
+  recipes = Recipe objects(user = req.user)
+  recipes = model to dictionary(recipe) for recipe in recipes
+  return JsonResponse({recipes: recipes})
+```
+
+
