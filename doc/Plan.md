@@ -141,3 +141,22 @@ def get_recipe(req, id):
   return JsonResponse({recipe: recipe})
 ```
 
+#### POST Recipe Create
+
+* This endpoint will be given data from the front end for the purpose of putting it into the Recipe data table
+* First thing the endpoint will have to do is use `json.loads` to parse the json into a python dictionary
+* The endpoint can then create a new Recipe entry
+
+```python
+def create_recipe(req):
+  body = json.loads(req.body)
+  new_recipe = Recipe(
+    title = body title
+    ingredients = body ingredients
+    instructions = body instructions
+    public = body public
+  )
+
+  save new recipe
+```
+
