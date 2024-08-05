@@ -31,6 +31,7 @@
   * title - string
   * comments - Comments
   * public - boolean
+  * user - User
 * User - User
   * firstname - string
   * lastname - string
@@ -68,4 +69,53 @@
   * Comments - a one to many relationship with the `Comment` model
     * A comment belongs to one post, a post can have many comments
   * Public - whether or not the posted recipe is visible to other users
+  * User - the user that posted the recipe
+
+```python
+class Recipe(Models):
+  id = integer(primary key)
+  title = text
+  ingredients = text
+  instructions = text
+  comments = foreignkey(Comment)
+  public = boolean
+  user = foreignkey(User)
+```
+
+#### Comment
+
+* Contains the following data
+  * Id - used to identify the comment
+  * user - the user that posted the comment
+  * header - a header that sums up the comment
+  * comment - the actual comment
+
+```python
+class Comment(Models):
+  id = integer(primary key)
+  user = foreignkey(User)
+  header = text
+  comment = text
+```
+
+### Endpoints and Pages
+
+* All pages will have the following
+  * A navbar located on the left side of the screen
+  * A topbar that will contain the name of the site
+
+#### GET Home Page
+
+* The home page will display publicly posted recipes
+* When the front end displays the home page, it will make a request to the api
+* The back end will then return a list of the publicly posted recipes from the database
+
+```python
+def get_public_recipes(req):
+  recpies = Recipe object(public = true)
+  recipes = model to dictionary(recipe) for recipe in recipes
+  return JsonResponse({recipes: recipes})
+```
+
+#### GET Account Page
 
