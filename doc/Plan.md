@@ -173,3 +173,19 @@ def delete_recipe(req, id):
   return JsonResponse({success: true})
 ```
 
+#### POST comment
+
+* This endpoint will save a new comment into the database
+
+```python
+def post_comment(req, id):
+  body = json.loads(req.body)
+  new_comment = Comment(
+    header = body header
+    comment = body comment
+  )
+
+  save new comment
+```
+
+
