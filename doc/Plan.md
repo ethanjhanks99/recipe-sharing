@@ -98,7 +98,7 @@ class Comment(Models):
   comment = text
 ```
 
-### Endpoints and Pages
+### Endpoints
 
 * All pages will have the following
   * A navbar located on the left side of the screen
@@ -130,10 +130,11 @@ def account(req):
   return JsonResponse({recipes: recipes})
 ```
 
-#### GET Recipe Page
+#### GET Recipe
 
 * The recipe page will display all the details of a specific recipe
 * The front end will make a request for a specific recipe's data
+* This endpoint will be used for both the recipe page and the update recipe page
 
 ```python
 def get_recipe(req, id):
@@ -158,5 +159,17 @@ def create_recipe(req):
   )
 
   save new recipe
+```
+
+#### DELETE recipe deletion
+
+* This endpoint will receive the id of the recipe to be deleted from the front end
+* It will then delete the specific recipe from the database
+
+```python
+def delete_recipe(req, id):
+  recipe = Recipe object(id = id)
+  delete recipe
+  return JsonResponse({success: true})
 ```
 
