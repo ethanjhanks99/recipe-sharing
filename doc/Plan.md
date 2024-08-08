@@ -188,4 +188,13 @@ def post_comment(req, id):
   save new comment
 ```
 
+#### DELETE comment deletion
 
+* This endpoint delete's a given comment
+
+```python
+def delete_comment(req, id):
+  comment = Comment object(id = id)
+  delete comment
+  return JsonResponse({success: true})
+```
