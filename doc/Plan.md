@@ -1,4 +1,4 @@
-# Recipe Sharing Application Development Plan
+# Recipe Sharing Application v0.0.1 Development Plan
 ## Analysis of Requirements
 ### Tools
 
@@ -204,6 +204,7 @@ def delete_comment(req, id):
 * These ustilities are used by the front end to make requests to the backend
 * They are written in plain JavaScript
 * This helps keep code organized and concise
+* In this application, only app.js is necessary
 
 #### app.js
 
@@ -244,8 +245,20 @@ const method = (url, body) => {
 }
 ```
 
+### Components
+
+* These are functional parts of the application that are not page-specific, such as navbars and banners
+
+#### Sidebar
+
+* I will be bringing the sidebar that I created in another application and styling it differently
+* It works by accepting a list of dictionaries that contain the page name and the url for that page as a prop
+* The `sidebar.jsx` then takes that prop and displays it in a sidebar on the left side of the screen
+
+
 ### Pages
 
 #### Home
 
-
+* The home page is the first page the user sees when they login to the app
+* It will show recipes in order from most recently posted first
