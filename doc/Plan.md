@@ -198,3 +198,54 @@ def delete_comment(req, id):
   delete comment
   return JsonResponse({success: true})
 ```
+
+### Utilities
+
+* These ustilities are used by the front end to make requests to the backend
+* They are written in plain JavaScript
+* This helps keep code organized and concise
+
+#### app.js
+
+* This is the main connection point between the frontend and the backend
+* It has 5 methods:
+  * makeRequests
+    * This method performs the action of making a request to the backend api
+    * It has the parameters `url`, `method`, and `body`
+      * `url` is the desired enpoint the frontend is wanting to access
+      * `method` is what method the frontend is using (e.g. GET, POST)
+      * `body` is the body of the http request. This is not needed for things like GET requests
+    * The method creates the GTTP request, then makes a fetch request
+    * The method returns the response in json
+
+```js
+const makeRequest = (url, method, body) => {
+  const request = {
+    method,
+    headers,
+    body
+  }
+
+  const response = await fetch(url, request)
+  return response
+}
+```
+
+  * method functions
+    * The method functions are mainly used to help make code more readable
+      * Rather than calling `makeRequests`, you call app.get, or app.post
+    * The remaining four functions will follow the same pattern
+      * Take url and body as arguments
+      * return makeRequest
+
+```js
+const method = (url, body) => {
+  return makeRequests(url, method, body)
+}
+```
+
+### Pages
+
+#### Home
+
+
